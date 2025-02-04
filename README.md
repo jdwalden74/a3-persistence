@@ -5,7 +5,7 @@ Due: February 10th, by 11:59 AM.
 
 This assignment continues where we left off, extending it to use the most popular Node.js server framework (Express), 
 a database ([MongoDB](https://www.mongodb.com/)), and a CSS style framework / template of your choice ([Material Tailwind](https://www.material-tailwind.com/),
-[MaterialUI](https://mui.com/), [Tailwind CSS](https://tailwindcss.com/), [Mantine](https://mantine.dev), or [Shadcn](https://ui.shadcn.com/)).
+[MaterialUI](https://mui.com/), [Tailwind CSS](https://tailwindcss.com/), [Mantine](https://mantine.dev), [Shadcn](https://ui.shadcn.com/), etc.).
 
 Baseline Requirements
 ---
@@ -13,13 +13,15 @@ Baseline Requirements
 Your application is required to implement the following functionalities:
 
 - a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows all data associated with a logged in user (except passwords)
+- a `Results` functionality which shows all data, except passwords, associated with a logged-in user
 - a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their username / account. 
-The authentication is to be implemented using [Express Passport](https://github.com/jaredhanson/passport)
+  The authentication is to be implemented using [Passport - Local Strategy](https://www.passportjs.org/packages/passport-local/) 
+  which authenticates using a simple username and password. For the purposes of this assignment, you do not have to encrypt
+  the password.
 - Persistent data storage in between server sessions using [MongoDB](https://www.MongoDB.com/cloud/atlas) (you *must* use MongoDB for this assignment). You can use either the [official MongoDB node.js library](https://www.npmjs.com/package/MongoDB) or use the [Mongoose library](https://www.npmjs.com/package/mongoose), which enables you to define formal schemas for your database. Please be aware that the course staff cannot provide in-depth support for use of Mongoose.  
-- Use of a CSS framework (see above). 
-This should do the bulk of your styling/CSS for you and be appropriate to your application. 
-For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
+- Use of a CSS style framework (see possibilities at the beginning of this assignment). 
+  This should do the bulk of your styling/CSS for you and be appropriate to your application. 
+  For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
 
 Your application is required to demonstrate the use of the following concepts:  
 
@@ -55,13 +57,23 @@ Deliverables
 
 Do the following to complete this assignment:
 
-1. Implement your project with the above requirements. Consider beginning by converting your A2 assignment. First, change the server to use express. Then, modify the server to use MongoDB instead of storing data locally. Last but not least, implement user accounts and login. User accounts and login is often the hardest part of this assignment, so budget your time accordingly.
-2. Ensure that your project has the proper naming scheme as previous assignments except starting with "a3-" so we can find it.
-3. Modify the README to the specifications below.
-4. Push your application to your GitHub repository before the deadline at 11:59pm.
-5. Deploy your project to Glitch (unless completing the alternative server technical achievement described below), and fill in the appropriate fields in your package.json file.
-6. Test your project to make sure that when someone goes to your main page on Glitch (or an alternative server), it displays correctly.
-
+1. Accept the A3 assignment which should automatically create a private repository for you.
+2. Implement your project with the above requirements. Consider beginning by converting your A2 
+   assignment. First, change the server to use express. Then, modify the server to use MongoDB 
+   instead of storing data locally. Last but not least, implement user accounts and login using
+   Passport Local Strategy. User accounts and login is a difficult part of this assignment, so
+   budget your time accordingly. 
+3. Ensure that your project has the proper naming scheme as previous assignments except starting
+   with "a3-" so we can find it. 
+4. Modify the README to the specifications below.
+5. Push your final application to your assignment GitHub repository before the deadline at 11:59pm. 
+6. Create an empty, temporary, `public` GitHub repository. Push your final application to this
+   repository. 
+7. Import from this public repository to deploy on Glitch (unless completing the 
+   alternative server technical achievement described below). Fill in the appropriate fields in 
+   your package.json file. Delete the public repository after the import has been successful. 
+8. Test your project to make sure that when someone goes to your main page on Glitch (or an 
+   alternative server), it displays correctly.
 
 Achievements
 ---
@@ -73,21 +85,31 @@ why it was challenging, and how many points you think the achievement should be 
 ALL ACHIEVEMENTS MUST BE DESCRIBED IN YOUR README IN ORDER TO GET CREDIT FOR THEM.
 
 *Technical*
-- (10 points) Implement Auth0 authentication (easier) or OAuth authentication, perhaps with a library like [passport.js](http://www.passportjs.org/). 
-*You must either use Github authentication or provide a username/password to access a dummy account*. 
-Course staff cannot be expected, for example, to have a personal Facebook, Google, or Twitter account to use when grading this assignment. 
-Please contact the course staff if you have any questions about this. THIS IS THE HARDEST ACHIEVEMENT OFFERED IN WEBWARE. You have been warned!  
-- (5 points) Instead of Glitch, host your site on a different service like [Vercel](https://vercel.com/) or [Heroku](https://www.heroku.com). Make sure to describe this a bit in your README. What was better about using the service you chose as compared to Glitch? What (if anything) was worse? 
+- (10 points) Implement GitHub authentication using either  [Passport GitHub1](https://www.passportjs.org/packages/passport-github)
+  or [Passport GitHub2](https://www.passportjs.org/packages/passport-github2). 
+  *You must either use GitHub authentication or provide a username/password to access a dummy account*. 
+  Course staff cannot be expected, for example, to have a personal Facebook, Google, or Twitter account to use when grading this assignment. 
+  Please contact the course staff if you have any questions about this. THIS IS THE HARDEST ACHIEVEMENT OFFERED IN WEBWARE.
+  It is highly recommended that you complete the required Passport Local Strategy first and then attempt this!
+- (5 points) Instead of Glitch, host your site on a different service like [Vercel](https://vercel.com/) or [Heroku](https://www.heroku.com).
+  Make sure to describe this a bit in your README. What was better about using the service you chose as compared to Glitch? 
+  What (if anything) was worse? 
 - (5 points) Get 100% (not 98%, not 99%, but 100%) in all four lighthouse tests required for this assignment.
-- (up to 5 points) List up to five Express middleware packages you used and a short (one sentence) summary of what each one does. THESE MUST BE SEPARATE PACKAGES THAT YOU INSTALL VIA NPM, NOT THE ONES INCLUDED WITH EXPRESS. So express.json and express.static don't count here. For a starting point on middleware, see [this list](https://expressjs.com/en/resources/middleware.html).
+- (up to 5 points) List up to five Express middleware packages you used and a short (one sentence) summary of what each 
+  one does. THESE MUST BE SEPARATE PACKAGES THAT YOU INSTALL VIA NPM, NOT THE ONES INCLUDED WITH EXPRESS. So express.json
+  and express.static don't count here. For a starting point on middleware, see [this list](https://expressjs.com/en/resources/middleware.html).
 
 *Design/UX*
-- (10 points) Make your site accessible using the [resources and hints available from the W3C](https://www.w3.org/WAI/), Implement/follow twelve tips from their [tips for writing](https://www.w3.org/WAI/tips/writing/), [tips for designing](https://www.w3.org/WAI/tips/designing/), and [tips for development](https://www.w3.org/WAI/tips/developing/). *Note that all twelve must require active work on your part*. 
-For example, even though your page will most likely not have a captcha, you don't get this as one of your twelve tips to follow because you're effectively 
-getting it "for free" without having to actively change anything about your site. 
-Contact the course staff if you have any questions about what qualifies and doesn't qualify in this regard. 
-List each tip that you followed and describe what you did to follow it in your site.
-- (5 points) Describe how your site uses the CRAP principles in the Non-Designer's Design Book readings. 
+- (10 points) Make your site accessible using the [resources and hints available from the W3C](https://www.w3.org/WAI/), 
+  Implement/follow twelve tips from their [tips for writing](https://www.w3.org/WAI/tips/writing/),
+  [tips for designing](https://www.w3.org/WAI/tips/designing/), and [tips for development](https://www.w3.org/WAI/tips/developing/).
+  *Note that all twelve must require active work on your part*. 
+  For example, even though your page will most likely not have a captcha, you don't get this as one of your twelve tips 
+  to follow because you're effectively getting it "for free" without having to actively change anything about your site. 
+  Contact the course staff if you have any questions about what qualifies and doesn't qualify in this regard. 
+  List each tip that you followed and describe what you did to follow it in your site.
+- (10 points) Describe how your site uses the CRAP principles in the [Non-Designer's Design Book](https://learning.oreilly.com/library/view/the-non-designers-design/9780321563088/)
+  Make sure you are logged in to Canvas before clicking on the book's link.
 Which element received the most emphasis (contrast) on each page? 
 How did you use proximity to organize the visual information on your page? 
 What design elements (colors, fonts, layouts, etc.) did you use repeatedly throughout your site? 
@@ -112,5 +134,5 @@ Include a very brief summary of your project here. Images are encouraged, along 
 ## Technical Achievements
 - **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
 
-### Design/Evaluation Achievements
+## Design/Evaluation Achievements
 - **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
