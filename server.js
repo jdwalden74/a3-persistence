@@ -30,6 +30,9 @@ app.use(express.json());
 
 
 app.use((req, res, next) => {
+    if (!db) {
+        return res.status(500).json({ error: "Database is not ready" });
+    }
     req.db = db;
     req.sessionUser = sessionUser.username;
     next();
