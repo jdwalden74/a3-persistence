@@ -125,14 +125,23 @@ your glitch (or alternative server) link e.g. http://a3-wilson-wong.glitch.me
 
 Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
 
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why
-  - include any modifications to the CSS framework you made via custom CSS you authored
+My website works as a virtual workspace to house all of your sticky notes. The app allows you to create, edit, and delete
+custom sticky notes with titles, text areas, date tracking, and custom colors. It keeps an active count of all your sticky notes
+and dynamically changes there color based on user input. It organizes your sticky notes for you and keeps them orderly
+and ascetically pleasing.
+
+I had a particularly hard time with the authentication with this application as I've never directly worked on it before,
+but was able to overcome the challenge and keep a concurrent track of the current user in the server and client side.
+
+I chose a simple track of username and password in my mongodb database as it was the easiest to implement. I then had 
+every request include the current sessions user for authentication, as well as a route to retrieve the current sessions 
+user to be stored on the client side. If you try to access the clipboard.html without being signed in it will kick you
+back to the login. If you try to login and no username matches in the database it'll create a new account automatically.
+
+I used 2 custom css stylesheets with a variety of custom identifiers. I attempted to use tailwind and Shadcn which I've used previously but
+ran into issues as I believe they are primarily focused toward typescript / react.
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
+- **Tech Achievement 1**: Deployed to Vercel rather than glitch. I liked having more control of how it was deployed 
+- thought the vercel.json file in my application, though it ws a bti harder to set up than glitch 
 
-## Design/Evaluation Achievements
-- **Design Achievement 1**: I followed the following tips from the W3C Web Accessibility Initiative...
