@@ -3,14 +3,15 @@ import path from 'path';
 import { MongoClient } from 'mongodb';
 import { fileURLToPath } from 'url';
 import noteRouter from './routes/noteRoute.js';
-
-
-
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express()
 const port = process.env.PORT || 3000;
 
-const MONGO_URI = "mongodb+srv://user:pass@cluster0.icsyi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI =  process.env.MONGO_URI
+
+console.log(MONGO_URI)
 
 const client = new MongoClient(MONGO_URI);
 
