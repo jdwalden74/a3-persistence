@@ -44,8 +44,11 @@ const __dirname = path.dirname(__filename);
 
 
 app.get('/', (req, res) => {
+    console.log("Accessing the home route...");
     res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
+
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 app.get('/index', (req, res) => {
 f
