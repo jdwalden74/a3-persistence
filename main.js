@@ -333,7 +333,7 @@ const userLogIn = async function(event){
     sessionUser.username = data.username;
 
     if (response.ok) {
-        window.location.href = "/index.html";
+        window.location.href = "/clipboard.html";
     } else {
         alert(data.message || "Login failed!");
     }
@@ -343,7 +343,7 @@ const userLogIn = async function(event){
 window.onload = async function () {
     console.log("Page loaded");
 
-    if (window.location.pathname === "/index.html") {
+    if (window.location.pathname === "/clipboard.html") {
         try {
             const response = await fetch('/session');
             const data = await response.json();

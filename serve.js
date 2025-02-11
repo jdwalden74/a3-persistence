@@ -48,7 +48,7 @@ f
     if (!req.sessionUser) {
         return res.redirect('/');
     }
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "clipboard.html"));
 });
 
 app.use('/notes', noteRouter);
