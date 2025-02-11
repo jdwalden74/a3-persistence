@@ -1,4 +1,8 @@
 {
+  "name": "cs4241-c25-a3",
+  "version": "0.1.0",
+  "description": "WPI CS4241-C25 Assignment A3",
+  "author": "James Walden",
   "type": "module",
   "dependencies": {
     "autoprefixer": "^10.4.20",
@@ -14,5 +18,8 @@
   },
   "scripts": {
     "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=16.x"
   }
 }
