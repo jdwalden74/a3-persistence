@@ -8,7 +8,7 @@ import noteRouter from './routes/noteRoute.js';
 
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
 
 const MONGO_URI = "mongodb+srv://user:pass@cluster0.icsyi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
