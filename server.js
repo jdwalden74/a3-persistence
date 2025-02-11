@@ -45,6 +45,7 @@ const __dirname = path.dirname(__filename);
 
 app.get('/', (req, res) => {
     console.log("Accessing the home route...");
+    sessionUser.username = null;
     res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
