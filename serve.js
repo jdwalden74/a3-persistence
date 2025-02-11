@@ -40,15 +40,15 @@ const __dirname = path.dirname(__filename);
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "login.html"))
-})
+    res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
 
 app.get('/index', (req, res) => {
 f
     if (!req.sessionUser) {
         return res.redirect('/');
     }
-    res.sendFile(path.join(__dirname, "clipboard.html"));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.use('/notes', noteRouter);
@@ -89,7 +89,8 @@ app.get('/session', (req, res) => {
     }
 });
 
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

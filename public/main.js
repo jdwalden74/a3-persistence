@@ -333,7 +333,7 @@ const userLogIn = async function(event){
     sessionUser.username = data.username;
 
     if (response.ok) {
-        window.location.href = "/clipboard.html";
+        window.location.href = "clipboard.html";
     } else {
         alert(data.message || "Login failed!");
     }
@@ -358,11 +358,11 @@ window.onload = async function () {
                 getNotes();
             } else {
                 console.log("No session found, redirecting to login...");
-                window.location.href = "/";
+                window.location.href = "login.html";
             }
         } catch (error) {
             console.error("Error checking session:", error);
-            window.location.href = "/";
+            window.location.href = "login.html";
         }
     } else {
         const login = document.querySelector('.login');
